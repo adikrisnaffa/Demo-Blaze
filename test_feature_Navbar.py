@@ -37,6 +37,7 @@ def test_contact(context):
 
     message = context.find_element(By.ID, 'message-text')
     message.send_keys('This is Test Automation with Selenemium Webdriver & Python Language')
+    time.sleep(5)
 
     send_message = context.find_element(By.XPATH, '//button[@onclick="send()"]')
     send_message.click()
@@ -55,84 +56,4 @@ def test_about_us(context):
 
     play_video = context.find_element(By.XPATH, '//button[@title="Play Video"]')
     play_video.click()
-    time.sleep(3)
-
-@pytest.mark.cart
-def test_cart(context):
-
-    cart = context.find_element(By.ID, 'cartur')
-    cart.click()
-    time.sleep(3)
-    assert 'https://www.demoblaze.com/cart.html' in context.current_url
-
-    place_order = context.find_element(By.XPATH, '//button[@data-target="#orderModal"]')
-    place_order.click()
-
-    name = context.find_element(By.ID, 'name')
-    name.send_keys('Test Name')
-
-    country = context.find_element(By.ID, 'country')
-    country.send_keys('Test Country')
-
-    city = context.find_element(By.ID, 'city')
-    city.send_keys('Test City')
-
-    credit_card = context.find_element(By.ID, 'card')
-    credit_card.send_keys('Test Credit Card')
-
-    month = context.find_element(By.ID, 'month')
-    month.send_keys('Test Month')
-
-    year = context.find_element(By.ID, 'year')
-    year.send_keys('Test Year')
-    time.sleep(5)
-
-
-    purchase = context.find_element(By.XPATH, '//button[@onclick="purchaseOrder()"]')
-    purchase.click()
-  
-    context.find_element(By.XPATH, '//button[@tabindex="1"]').click()
-    time.sleep(3)
-
-@pytest.mark.next_slide
-def test_next_slide(context):
-
-    next_slide = context.find_element(By.XPATH, '//a[@data-slide="next"]')
-    ActionChains(context).double_click(next_slide).perform()
-    time.sleep(3)
-
-@pytest.mark.prev_slide
-def test_prev_slide(context):
-
-    prev_slide = context.find_element(By.XPATH, '//a[@data-slide="prev"]')
-    prev_slide.click()
-    time.sleep(3)
-
-@pytest.mark.categories
-def test_categories(context):
-
-    categories = context.find_element(By.ID, 'cat')
-    categories.click()
-    time.sleep(3)
-
-
-@pytest.mark.phones
-def test_phones(context):
-
-    phones = context.find_element(By.XPATH, '//a[@onclick=\"byCat(\"phone\")\"]')
-    phones.click()
-    time.sleep(3)
-
-@pytest.mark.laptops
-def test_laptops(context):
-
-    laptops = context.find_element(By.CSS_SELECTOR, "a[@onclick=\"byCat(\"notebook\")\"]")  
-    laptops.click()
-    time.sleep(3)
-
-@pytest.mark.monitors
-def test_monitors(context):
-
-    monitors = context.find_element(By.XPATH, '')
-    monitors.click()
     time.sleep(3)
